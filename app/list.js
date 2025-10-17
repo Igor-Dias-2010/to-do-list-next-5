@@ -7,13 +7,15 @@ export default function List() {
     const [input, setInput] = useState("")
     const [error, setError] = useState("")
 
+    const maxCharacters = 28
+
     function add() {
         if (input.trim() === "") {
             setError("⚠️ Please, fill in this field ⚠️")
 
             setTimeout(() => {
                 setError("")
-            }, 2000)
+            }, 3000)
 
             return
         }
@@ -28,10 +30,11 @@ export default function List() {
     return (
         <div>
             <h1>To-do list</h1>
+            {input.length}/{maxCharacters}
             {error && <p className='empty'>{error}</p>}
-            <input type="text" placeholder='Type a task...' value={input} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => {
+            <input type="text" placeholder='Type a task...' value={input} onChange={(e) => setInput(e.target.value)} maxLength={28} onKeyDown={(e) => {
                 if (e.key === 'Enter') add()
-            }} />
+                }} />
             <button onClick={add}>Add</button>
             <button onClick={clearAll}>Clear all</button>
 

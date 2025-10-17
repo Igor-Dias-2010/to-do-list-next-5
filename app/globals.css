@@ -9,17 +9,38 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: black;
+  color: white;
 }
 
+
 .empty {
-  color: black;
-  border: 2px solid black;
-  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border: 3px solid white;
+  border-radius: 8px;
   padding: 5px;
-  margin-bottom: -38px;
+  text-align: center;
+  margin-bottom: -35px;
   margin-top: 5px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: bold;
+  animation: pulse-border 0.5s ease-in-out infinite alternate;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse-border {
+  from {
+    border-color: rgb(219, 219, 219);
+    box-shadow: 0 0 10px rgb(219, 219, 219);
+  }
+
+  to {
+    border-color: rgb(204, 23, 23);
+    box-shadow: 0 0 20px rgb(204, 23, 23);
+  }
 }
 
 input,
@@ -28,10 +49,30 @@ button {
   margin-right: 10px;
 }
 
+button {
+  width: 70px;
+  height: 25px;
+  font-size: 15px;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+button:active {
+  transform: scale(1.0);
+}
+
 ul {
   margin-top: 15px;
   margin-bottom: 15px;
-  border: 2px solid black;
+  border: 2px solid white;
+  border-radius: 5px;
   padding-left: 10px;
   padding-right: 10px;
   padding-bottom: 10px;
@@ -47,4 +88,26 @@ li {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   font-size: 18px;
+}
+h1{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 38px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+input{
+  padding-left: 6px;
+  height: 25px;
+  font-size: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+  border: 2px solid white;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+input:focus{
+  box-shadow: 0 0 10px white;
+}
+input::placeholder{
+  letter-spacing: 0px;
 }
