@@ -7,7 +7,10 @@ export default function List() {
     const [input, setInput] = useState("")
     const [error, setError] = useState("")
 
-    const maxCharacters = 28
+    const maxCharacters = 30
+    const counterColor =
+        input.length >= 20 ? "rgba(219, 16, 16,1)" :
+            input.length >= 15 ? "yellow" : "white"
 
     function add() {
         if (input.trim() === "") {
@@ -30,17 +33,27 @@ export default function List() {
     return (
         <div>
             <h1>To-do list</h1>
-            {input.length}/{maxCharacters}
-            {error && <p className='empty'>{error}</p>}
-            <input type="text" placeholder='Type a task...' value={input} onChange={(e) => setInput(e.target.value)} maxLength={28} onKeyDown={(e) => {
+            {error && <p className='empty' style={{ opacity: error ? 1 : 0, transition: "opacity 0.5s ease", pointerEvents: error ? "auto" : "none" }}>{error}</p>}
+
+            <p style={{ color: counterColor, transition: "color 0.3s ease" }} className='counter'>
+                {input.length}/{maxCharacters} characters
+            </p>
+            <p className='counter'>
+                You have <span>{tasks.length}</span> task(s)
+            </p>
+            {input.length === maxCharacters && (
+                <p className='warning'>{`You've reached the limit of ${maxCharacters} characters`}</p>
+            )}
+
+            <input type="text" placeholder='Type a task...' value={input} onChange={(e) => setInput(e.target.value)} maxLength={maxCharacters} onKeyDown={(e) => {
                 if (e.key === 'Enter') add()
-                }} />
+            }} />
             <button onClick={add}>Add</button>
             <button onClick={clearAll}>Clear all</button>
 
             <ul>
-                {tasks.map((tasks, i) => (
-                    <li key={i}>{tasks}</li>
+                {tasks.map((task, i) => (
+                    <li key={i}>{task}</li>
                 ))}
             </ul>
         </div>

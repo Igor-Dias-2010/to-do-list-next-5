@@ -13,6 +13,9 @@ body {
   color: white;
 }
 
+body::-webkit-scrollbar {
+  scrollbar-width: none;
+}
 
 .empty {
   display: flex;
@@ -23,12 +26,11 @@ body {
   border-radius: 8px;
   padding: 5px;
   text-align: center;
-  margin-bottom: -35px;
+  margin-bottom: -45px;
   margin-top: 5px;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: bold;
   animation: pulse-border 0.5s ease-in-out infinite alternate;
-  transition: all 0.3s ease;
 }
 
 @keyframes pulse-border {
@@ -45,7 +47,7 @@ body {
 
 input,
 button {
-  margin-top: 50px;
+  margin-top: 60px;
   margin-right: 10px;
 }
 
@@ -57,7 +59,10 @@ button {
   color: white;
   border: 2px solid white;
   border-radius: 8px;
+  cursor: pointer;
   transition: 0.3s;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 button:hover {
@@ -79,6 +84,8 @@ ul {
 }
 
 li {
+  padding-left: 10px;
+  padding-right: 10px;
   list-style: none;
   margin-top: 20px;
   background-color: gray;
@@ -89,25 +96,71 @@ li {
   letter-spacing: 1px;
   font-size: 18px;
 }
-h1{
+
+h1 {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 38px;
   margin-top: 10px;
   margin-bottom: 10px;
+  -moz-user-select: none;
+  user-select: none;
 }
-input{
+
+input {
   padding-left: 6px;
   height: 25px;
   font-size: 15px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   letter-spacing: 1px;
   border: 2px solid white;
-  border-radius: 3px;
+  border-radius: 5px;
   transition: 0.3s;
 }
-input:focus{
-  box-shadow: 0 0 10px white;
+
+li::selection {
+  background: rgba(255, 255, 255, 0.5);
+  color: black;
 }
-input::placeholder{
+
+input:focus {
+  box-shadow: 0 0 10px white;
+  border-color: white;
+}
+
+input::placeholder {
   letter-spacing: 0px;
+  user-select: none;
+  -moz-user-select: none;
+}
+
+.counter {
+  font-family: monospace;
+  font-size: 15px;
+  margin-top: 55px;
+  margin-bottom: -45px;
+  user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.warning {
+  margin-top: -90px;
+  margin-bottom: 19px;
+  color: white;
+  background-color: black;
+  padding: 4px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  border: 3px solid white;
+  border-radius: 8px;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+span {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  -moz-user-select: none;
+  user-select: none;
 }
